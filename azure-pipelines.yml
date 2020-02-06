@@ -32,4 +32,6 @@ steps:
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
 
-- task: SonarCloudAnalyze@1
+- task: CmdLine@2
+  inputs:
+    script: 'mvn verify sonar:sonar'
