@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE xml>
+<suite name="CI-Tests">
+
+	<test name="Pruebas unitarias">
+		<classes>
+			<class
+				name="com.restcalculator.unittests.CalculatorClientTests">
+				<methods>
+					<include name="ShouldComputeSumOfPositiveNumbers" />
+				</methods>
+			</class>
+			<class
+				name="com.restcalculator.unittests.InvoiceGeneratorTests">
+				<methods>
+					<include name="ShouldComputeDiscountPercentage" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+	
+	<test name="Pruebas de integracion">
+		<classes>
+			<class
+				name="com.restcalculator.integrationtests.CalculatorClientTests">
+				<methods>
+					<include name="ShuldSumPositiveNumbersTest" />
+				</methods>
+			</class>
+			<class
+				name="com.restcalculator.integrationtests.InvoiceGeneratorTests">
+				<methods>
+					<include name="ShouldComputeDiscountPercentage" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+	
+</suite>
