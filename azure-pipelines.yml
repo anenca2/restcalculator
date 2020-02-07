@@ -32,6 +32,10 @@ steps:
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
 
+- task: SonarCloudPublish@1
+  inputs:
+    pollingTimeoutSec: '300'
+
 - task: CmdLine@2
   inputs:
     script: 'mvn verify sonar:sonar'
