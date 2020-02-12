@@ -167,6 +167,6 @@
 		<sonar.projectKey>eidermauricio_restcalculator</sonar.projectKey>
 		<sonar.organization>eidermauricio</sonar.organization>
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
-		<sonar.login>cb88b6dc1a76e54fe8d203d80846de4d8c88b0a4</sonar.login>		
+		<sonar.login>594e80b4479b4397cafbc4c6659d000a6d45e109</sonar.login>
 	</properties>
 </project>
