@@ -29,6 +29,8 @@ steps:
     sonarQubeRunAnalysis: true
     goals: 'package'
 
+- task: SonarCloudAnalyze@1
+
 - task: SonarCloudPublish@1
   inputs:
     pollingTimeoutSec: '300'
