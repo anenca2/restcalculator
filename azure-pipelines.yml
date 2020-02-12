@@ -15,11 +15,7 @@ steps:
   inputs:
     SonarCloud: 'eider_sonar_cloud'
     organization: 'eidermauricio'
-    scannerMode: 'CLI'
-    configMode: 'manual'
-    cliProjectKey: 'key'
-    cliProjectName: 'name'
-    cliSources: '.'
+    scannerMode: 'Other'
 
 - task: Maven@3
   inputs:
