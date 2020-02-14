@@ -14,7 +14,6 @@ public class CalculatorClient implements ICalculator{
 	{
 		client = Client.create();
 		client.setConnectTimeout(30000);
-		int naaaaa = 9;
 	}
 	 
 	public long Sum(long a, long b)
