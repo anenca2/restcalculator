@@ -8,6 +8,7 @@
 	<packaging>jar</packaging>
 	<url></url>
 	<description>Examples of integration testing, and unit testing with mockito framework.</description>
+	
 	<dependencies>
 		<dependency>
 			<groupId>org.testng</groupId>
@@ -35,14 +36,9 @@
 		<dependency>
 			<groupId>com.sun.jersey</groupId>
 			<artifactId>jersey-client</artifactId>
-			<version>1.19.4</version>
+			<version>1.19.1</version>
 		</dependency>
-		<dependency>
-			<groupId>jline</groupId>
-			<artifactId>jline</artifactId>
-			<version>2.14.6</version>
-		</dependency>
-	</dependencies>
+	</dependencies>	
 	<build>
 		<plugins>
 			<!-- Uses Java 1.8 -->
@@ -113,6 +109,10 @@
 		<maven.failsafe.plugin.version>2.19.1</maven.failsafe.plugin.version>
 		<mockito.version>2.8.9</mockito.version>
 		<mavencompiler.version>3.6.1</mavencompiler.version>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+		<start-class>com.restcalculator.app.app</start-class>
+		
 		
 		<sonar.projectKey>eidermauricio_restcalculator</sonar.projectKey>
 		<sonar.organization>eidermauricio</sonar.organization>

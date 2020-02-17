@@ -54,4 +54,5 @@ public class CalculatorClient implements ICalculator{
 		//
 		return resStr;
 	}
+
 }

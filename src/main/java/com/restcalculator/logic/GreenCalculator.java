@@ -4,8 +4,8 @@ import com.restcalculator.client.ICalculator;
 
 public class GreenCalculator {
 
-	public int number1;
-	public int number2;
+	public long number1;
+	public long number2;
 	
 	public GreenCalculator()
 	{

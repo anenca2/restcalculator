@@ -1,92 +1,114 @@
 package com.restcalculator.app;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 import com.restcalculator.client.CalculatorClient;
 import com.restcalculator.logic.GreenInvoiceGenerator;
 
-import jline.console.ConsoleReader;
 
 public class app {
 
 	public static void main(String[] args) throws IOException 
 	{
 		String opc = "0";
-		GreenInvoiceGenerator invoiceGenerator = new GreenInvoiceGenerator();
-		ConsoleReader myConsole = new ConsoleReader();
-		myConsole.clearScreen();
-		
-		//Does not do nothing
-		int nothingToDo = 0;
-		int againNothingToDo = 1;
-		int decla = 0;
-		int acla = decla * 2;
-		if(decla > acla)
-		{
-			if (decla<acla)
-			{
-				acla = decla;
-				if (decla == acla)
-				{
-					decla = 1;
-					if (decla!=acla)
-					{
-						decla = 3;
-					}
-				}
-			}
-		}
+		GreenInvoiceGenerator invoiceGenerator = new GreenInvoiceGenerator();	
 		
 		while (!opc.equals("9")) 
 		{	
-			myConsole.clearScreen();
-			myConsole.println();
-			myConsole.println("         **** AplicaciÃ³n POS ****");		
-			myConsole.println(" Opciones del aplicativo");
-			myConsole.println();
-			myConsole.println(" 1 - Para adicionar elementos");
-			myConsole.println(" 2 - Para liquidar factura");
-			myConsole.println(" 9 - Para salir");
-			myConsole.println();
+		    clearConsole(); 
+			System.out.println();
+			System.out.println("********************************************");
+			System.out.println("*         **** Aplicación POS ****         *");
+			System.out.println("********************************************");
+			System.out.println(" Opciones del aplicativo");
+			System.out.println();
+			System.out.println(" 1 - Para adicionar elementos");
+			System.out.println(" 2 - Para liquidar factura");
+			System.out.println(" 9 - Para salir");
+			System.out.println();
+			System.out.print(" Digite su opción: ");					
 			
-			opc = myConsole.readLine("Digite su opciÃ³n: ");			
-			myConsole.clearScreen();
-			myConsole.flush(); 
-			
+			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+			opc = br.readLine();
+						
+			//Select option
 			switch (opc) {
 			case "1":
-				EnterItem(myConsole, invoiceGenerator);
+				EnterItem(invoiceGenerator);
 				break;
 
 			case "2":
-				ProcessInvoice(myConsole, invoiceGenerator);
+				ProcessInvoice(invoiceGenerator);
 				break;
 			}
 		}
 		
-		myConsole.close();
+		System.out.println("Bye!!!!....");
 	}
 	
-	private static void EnterItem(ConsoleReader myConsole, GreenInvoiceGenerator invoiceGenerator) 
+	private static void EnterItem(GreenInvoiceGenerator invoiceGenerator) 
 			throws IOException
 	{
-		String itemName = myConsole.readLine("Nombre del producto: ");
-		String strItemValue = myConsole.readLine("Precio del producto: ");
+		System.out.println("Nombre del producto: ");		
+		
+		BufferedReader br1 = new BufferedReader(new InputStreamReader(System.in));
+		String itemName = br1.readLine();
+
+		
+		System.out.println("Precio del producto: ");
+		BufferedReader br2 = new BufferedReader(new InputStreamReader(System.in));
+		String strItemValue = br2.readLine();
 		
 		invoiceGenerator.AddItem(itemName, Integer.parseInt(strItemValue));
 		
-		myConsole.readLine("Elemento agregado, presione <enter> para retornar");
+		System.out.println("Elemento agregado");
+		delayConsole();
 	}
 	
-	private static void ProcessInvoice(ConsoleReader myConsole, GreenInvoiceGenerator invoiceGenerator) throws IOException
+	private static void ProcessInvoice (GreenInvoiceGenerator invoiceGenerator) throws IOException
 	{
 		CalculatorClient cc = new CalculatorClient();
 		
 		float grossPrice = invoiceGenerator.GetGrossPrice();
 		float totalDiscounted = invoiceGenerator.ProcessInvoceDiscount(cc, 80);
 		
-		myConsole.println("Precio bruto: " + String.valueOf(grossPrice));
-		myConsole.println("Precio neto: " + String.valueOf(totalDiscounted));
-		myConsole.readLine("Calculo efectuado, presione <enter> para retornar");
+		
+		System.out.println("Precio bruto: " + String.valueOf(grossPrice));
+		System.out.println("Precio neto: " + String.valueOf(totalDiscounted));
+		System.out.println("Calculo efectuado");
+		delayConsole();
 	}	
+	
+	private static void delayConsole()
+	{
+		try {
+			Thread.sleep(800);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public final static void clearConsole()
+	{
+	    try
+	    {
+	        final String os = System.getProperty("os.name");
+
+	        if (os.contains("Windows"))
+	        {
+	        	new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+	        }
+	        else
+	        {
+	            System.out.print("\033[H\033[2J");  
+	            System.out.flush();  
+	        }
+	    }
+	    catch (final Exception e)
+	    {
+	    	e.printStackTrace();
+	    }
+	}
 }
