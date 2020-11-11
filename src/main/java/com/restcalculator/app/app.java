@@ -20,15 +20,15 @@ public class app {
 		    clearConsole(); 
 			System.out.println();
 			System.out.println("********************************************");
-			System.out.println("*         **** Aplicación POS ****         *");
+			System.out.println("*         **** POS Application ****         *");
 			System.out.println("********************************************");
-			System.out.println(" Opciones del aplicativo");
+			System.out.println(" Application Options");
 			System.out.println();
-			System.out.println(" 1 - Para adicionar elementos");
-			System.out.println(" 2 - Para liquidar factura");
-			System.out.println(" 9 - Para salir");
+			System.out.println(" 1 - Add items");
+			System.out.println(" 2 - Calculate invoice");
+			System.out.println(" 9 - Exit");
 			System.out.println();
-			System.out.print(" Digite su opción: ");					
+			System.out.print(" Enter your option: ");					
 			
 			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 			opc = br.readLine();
@@ -51,19 +51,19 @@ public class app {
 	private static void EnterItem(GreenInvoiceGenerator invoiceGenerator) 
 			throws IOException
 	{
-		System.out.println("Nombre del producto: ");		
+		System.out.println("Product name: ");		
 		
 		BufferedReader br1 = new BufferedReader(new InputStreamReader(System.in));
 		String itemName = br1.readLine();
 
 		
-		System.out.println("Precio del producto: ");
+		System.out.println("Product price: ");
 		BufferedReader br2 = new BufferedReader(new InputStreamReader(System.in));
 		String strItemValue = br2.readLine();
 		
 		invoiceGenerator.AddItem(itemName, Integer.parseInt(strItemValue));
 		
-		System.out.println("Elemento agregado");
+		System.out.println("Added element");
 		delayConsole();
 	}
 	
@@ -75,9 +75,9 @@ public class app {
 		float totalDiscounted = invoiceGenerator.ProcessInvoceDiscount(cc, 80);
 		
 		
-		System.out.println("Precio bruto: " + String.valueOf(grossPrice));
-		System.out.println("Precio neto: " + String.valueOf(totalDiscounted));
-		System.out.println("Calculo efectuado");
+		System.out.println("Gross price: " + String.valueOf(grossPrice));
+		System.out.println("Net price: " + String.valueOf(totalDiscounted));
+		System.out.println("Calculation finished!");
 		delayConsole();
 	}	
 	
