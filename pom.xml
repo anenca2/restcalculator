@@ -98,6 +98,9 @@
 					<suiteXmlFiles>
 						<suiteXmlFile>src/test/java/com/restcalculator/suite/suite.xml</suiteXmlFile>
 					</suiteXmlFiles>
+				        <argLine>
+					    --illegal-access=permit
+					</argLine>
 				</configuration>
 			</plugin>
 		</plugins>
@@ -105,10 +108,10 @@
 	<properties>
 		<jacoco.version>0.7.9</jacoco.version>
 		<testng.version>6.8</testng.version>
-		<maven.surefire.plugin.version>2.20</maven.surefire.plugin.version>
-		<maven.failsafe.plugin.version>2.19.1</maven.failsafe.plugin.version>
+		<maven.surefire.plugin.version>2.22.0</maven.surefire.plugin.version>
+		<maven.failsafe.plugin.version>2.22.0</maven.failsafe.plugin.version>
 		<mockito.version>2.22.0</mockito.version>
-		<mavencompiler.version>3.6.1</mavencompiler.version>
+		<mavencompiler.version>3.8.0</mavencompiler.version>
 		<maven.compiler.source>1.11</maven.compiler.source>
 		<maven.compiler.target>1.11</maven.compiler.target>
 		<start-class>com.restcalculator.app.app</start-class>
