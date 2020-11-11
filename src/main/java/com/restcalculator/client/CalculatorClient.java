@@ -43,6 +43,7 @@ public class CalculatorClient implements ICalculator{
 	}
 	
 	private  String doGetRequest(String completeRequestUrl) throws Exception {
+		System.out.println("Calc service request: " + completeRequestUrl);
 		String resStr = "";        
 		//
 		WebResource webResource = client.resource(serverUrl + completeRequestUrl);
