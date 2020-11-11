@@ -26,7 +26,7 @@ public class CalculatorClient implements ICalculator{
 
 				//Temporary implementation to simulate webservice consumption
 				//Thread.sleep(1300);
-				return a + b;
+				//return a + b;
 			} 
 			catch (Exception e) {
 				e.printStackTrace();
