@@ -31,18 +31,34 @@ steps:
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
-    mavenOptions: '-Xmx3072m'
     goals: 'install'
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     codeCoverageToolOption: 'JaCoCo'
+    codeCoverageSourceDirectories: 'src/main'
     javaHomeOption: 'JDKVersion'
-    jdkVersionOption: '1.11'
     mavenVersionOption: 'Default'
     mavenAuthenticateFeed: false
     effectivePomSkip: false
     sonarQubeRunAnalysis: true
+    isJacocoCoverageReportXML: true
     sqMavenPluginVersionChoice: 'latest'
+
+#- task: Maven@3
+#  inputs:
+#    mavenPomFile: 'pom.xml'
+#    mavenOptions: '-Xmx3072m'
+#    goals: 'install'
+#    publishJUnitResults: true
+#    testResultsFiles: '**/surefire-reports/TEST-*.xml'
+#    codeCoverageToolOption: 'JaCoCo'
+#    javaHomeOption: 'JDKVersion'
+#    jdkVersionOption: '1.11'
+#    mavenVersionOption: 'Default'
+#    mavenAuthenticateFeed: false
+#    effectivePomSkip: false
+#    sonarQubeRunAnalysis: true
+#    sqMavenPluginVersionChoice: 'latest'
 
 - task: SonarCloudPublish@1
   inputs:
