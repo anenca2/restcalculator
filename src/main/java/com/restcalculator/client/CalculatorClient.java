@@ -8,7 +8,7 @@ import org.json.*;
 public class CalculatorClient implements ICalculator{
   
 	Client client;
-	private String serverUrl = "https://newton.now.sh/";
+	private String serverUrl = "https://newton.now.sh/api/v2/";
 	
 	public CalculatorClient()
 	{
@@ -21,11 +21,11 @@ public class CalculatorClient implements ICalculator{
 			try 
 			{
 				//The webservice for calculations is down
-				//String jsonResp = doGetRequest("simplify/" + a + "+" + b);	
-				//return substractResult(jsonResp);	
+				String jsonResp = doGetRequest("simplify/" + a + "+" + b);	
+				return substractResult(jsonResp);	
 
 				//Temporary implementation to simulate webservice consumption
-				Thread.sleep(1300);
+				//Thread.sleep(1300);
 				return a + b;
 			} 
 			catch (Exception e) {
