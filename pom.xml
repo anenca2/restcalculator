@@ -113,7 +113,7 @@
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<start-class>com.restcalculator.app.app</start-class>
 		
-		
+		<sonar.coverage.jacoco.xmlReportPaths>build/reports/jococo/jococoTestReport/jacocoTestReport.xml</sonar.coverage.jacoco.xmlReportPaths>
 		<sonar.projectKey>eidermauricio_restcalculator</sonar.projectKey>
 		<sonar.organization>eidermauricio</sonar.organization>
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
