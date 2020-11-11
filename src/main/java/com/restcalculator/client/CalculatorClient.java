@@ -20,8 +20,8 @@ public class CalculatorClient implements ICalculator{
 	{
 			try 
 			{
-				//The webservice for calculations is down
-				String jsonResp = doGetRequest("simplify/" + a + "+" + b);
+				//The add operator is URL encoded with %2B
+				String jsonResp = doGetRequest("simplify/" + a + "%2B" + b);
 				System.out.println("Sum service answer: " + jsonResp);
 				return substractResult(jsonResp);	
 
