@@ -21,7 +21,8 @@ public class CalculatorClient implements ICalculator{
 			try 
 			{
 				//The webservice for calculations is down
-				String jsonResp = doGetRequest("simplify/" + a + "+" + b);	
+				String jsonResp = doGetRequest("simplify/" + a + "+" + b);
+				System.out.println("Sum service answer: " + jsonResp);
 				return substractResult(jsonResp);	
 
 				//Temporary implementation to simulate webservice consumption
