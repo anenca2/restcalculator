@@ -116,7 +116,6 @@
 		<maven.compiler.target>1.11</maven.compiler.target>
 		<start-class>com.restcalculator.app.app</start-class>
 		
-		
   		<sonar.projectKey>anenca2_restcalculator</sonar.projectKey>
   		<sonar.organization>anenca2</sonar.organization>
   		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
